@@ -1,9 +1,13 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Tweet from '../components/Tweet'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+interface Tweets {
+    tweets: any[]
+}
+
+const Home: NextPage<Tweets> = ({tweets}: Tweets) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -21,6 +25,17 @@ const Home: NextPage = () => {
 
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async() => {
+    const res = await fetch(`${process.env.BASE_URL}/tweets`)
+    const tweets = await res.json()
+
+    return {
+      props: {
+        tweets
+      }
+    }
 }
 
 export default Home
