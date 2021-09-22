@@ -25,6 +25,7 @@ export async function up(knex: Knex): Promise<void> {
             .inTable(users)
             .unsigned()
             .notNullable();
+            table.integer('likes').defaultTo(0);
             table.timestamp('posted_at').defaultTo(knex.fn.now());
         })
     ])
