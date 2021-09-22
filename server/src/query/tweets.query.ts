@@ -4,6 +4,7 @@ import knex from "../db/knex";
 
 interface Tweet {
     content: string;
+    author: any;
 }
 
 class TweetsQuery {
@@ -14,7 +15,7 @@ class TweetsQuery {
         return knex(tweets).where({ post_id: id }).first();
     }
     postOne(data: Tweet) {
-        return knex(tweets).insert(data.content);
+        return knex(tweets).insert(data);
     }
 }
 
