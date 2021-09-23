@@ -8,7 +8,7 @@ import Head from 'next/head'
 import UserCard from "../../components/UserCard";
 
 export interface UserModel {
-    id?: number;
+    id: number;
     user_id: any;
     username: string;
     created_at: Date;
@@ -41,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async() => {
 
     const paths = users.map((user: any) => ({
         params: {
-            user_id: user.user_id
+            user_id: user.id
         }
     }))
 

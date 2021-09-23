@@ -49,7 +49,7 @@ const TweetForm = () => {
                             style={{ marginBottom: '1rem' }}
                         />
                 </FormGroup>
-                <Button variant="outlined" type="submit">
+                <Button variant="outlined" type="submit" style={{ marginBottom: '1rem' }}>
                     <FontAwesomeIcon icon={faCoffee} size="lg" />
                 </Button>
         </form>

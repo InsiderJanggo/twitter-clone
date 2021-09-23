@@ -6,7 +6,7 @@ class UsersQuery {
         return knex.select('*').from(users)
     }
     getOne(id: any) {
-        return knex(users).where({ user_Id: id }).first();
+        return knex(users).where({ id: id }).first();
     }
 }
 

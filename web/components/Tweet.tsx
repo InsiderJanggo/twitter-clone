@@ -13,7 +13,7 @@ interface TweetM {
 }
 
 interface TweetI {
-    tweet: TweetM
+    tweet: TweetM;
 }
 
 const Tweet = ({tweet}: TweetI) => {
@@ -21,11 +21,11 @@ const Tweet = ({tweet}: TweetI) => {
         <Card sx={{ minWidth: 275 }}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Posted By: {tweet.author}
+                    Posted By: <a href={"/user/" + tweet.author}>{tweet.author}</a>
                 </Typography>
                 
                 <Typography variant="h5" component="div">
-                {tweet.content}
+                    {tweet.content}
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
