@@ -1,13 +1,15 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Tweet from '../components/Tweet'
+import TweetForm from '../components/TweetForm'
 import styles from '../styles/Home.module.css'
 
 interface Tweets {
     tweets: any[]
+    user: any;
 }
 
-const Home: NextPage<Tweets> = ({tweets}: Tweets) => {
+const Home: NextPage<Tweets> = ({tweets, user}: Tweets) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,6 +22,13 @@ const Home: NextPage<Tweets> = ({tweets}: Tweets) => {
         <h1 className={styles.title}>
           Twitter Clone
         </h1>
+
+      {user? (
+        <TweetForm />
+      ): (
+        ""
+      )}
+
         {tweets.map((tweet) => (
           <Tweet key={tweet.post_id} tweet={tweet}/>
         ))}
@@ -31,11 +40,13 @@ const Home: NextPage<Tweets> = ({tweets}: Tweets) => {
 
 export const getStaticProps: GetStaticProps = async() => {
     const res = await fetch(`${process.env.BASE_URL}/tweets`)
+    const user = await window.localStorage.getItem('user')
     const tweets = await res.json()
 
     return {
       props: {
-        tweets
+        tweets,
+        user
       }
     }
 }
