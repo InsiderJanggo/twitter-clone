@@ -1,4 +1,9 @@
-import styles from './styles/Tweet.module.css'
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+
 
 interface TweetM {
     author: any;
@@ -14,16 +19,27 @@ interface TweetI {
 
 const Tweet = ({tweet}: TweetI) => {
     return(
-        <div key={tweet.post_id}>
-            <article role="article">
-                <div>
-                    <span>{tweet.author}</span>
-                </div>
-                    {tweet.content}
+        <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                    Posted By: {tweet.author}
+                </Typography>
+                
+                <Typography variant="h5" component="div">
+                {tweet.content}
+                </Typography>
+
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    Likes: {tweet.likes}
+                </Typography>
+                
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     Posted At: {tweet.posted_at}
-                    Like: {tweet.likes}
-            </article>
-        </div>
+                </Typography>
+            </CardContent>
+            <CardActions>
+            </CardActions>
+    </Card>
     )
 }
 
