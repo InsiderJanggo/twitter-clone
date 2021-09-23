@@ -1,13 +1,27 @@
 import styles from './styles/Tweet.module.css'
 
-const Tweet = () => {
+interface TweetM {
+    author: any;
+    post_id: any;
+    content: string;
+    likes: number;
+    posted_at: Date;
+}
+
+interface TweetI {
+    tweet: TweetM
+}
+
+const Tweet = ({tweet}: TweetI) => {
     return(
-        <div>
-            <article  role="article">
+        <div key={tweet.post_id}>
+            <article role="article">
                 <div>
-                    <span>Username</span>
+                    <span>{tweet.author}</span>
                 </div>
-                    Hello World
+                    {tweet.content}
+                    Posted At: {tweet.posted_at}
+                    Like: {tweet.likes}
             </article>
         </div>
     )

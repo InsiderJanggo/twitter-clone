@@ -20,7 +20,9 @@ const Home: NextPage<Tweets> = ({tweets}: Tweets) => {
         <h1 className={styles.title}>
           Twitter Clone
         </h1>
-        <Tweet />
+        {tweets.map((tweet) => (
+          <Tweet key={tweet.post_id} tweet={tweet}/>
+        ))}
       </main>
 
     </div>
