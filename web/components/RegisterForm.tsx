@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { 
     TextField,
-    Button
+    Button,
+    FormGroup
 } from "@mui/material";
 import { useState } from "react";
 import useForm from "../hooks/useForm";
@@ -61,29 +62,33 @@ const RegisterForm = () => {
             <div style={{ fontSize: '12px', color: 'red' }}>
                     {error.usernameError}
             </div>
-            <TextField 
-                id="outlined-basic" 
-                name="username"
-                type="text"
-                value={data.username}
-                onChange={setData}
-                label="Username" 
-                variant="outlined" 
-                style={{ marginBottom: '1rem' }}
-            />
+            <FormGroup>
+                <TextField 
+                    id="outlined-basic" 
+                    name="username"
+                    type="text"
+                    value={data.username}
+                    onChange={setData}
+                    label="Username" 
+                    variant="outlined" 
+                    style={{ marginBottom: '1rem' }}
+                />
+            </FormGroup>
              <div style={{ fontSize: '12px', color: 'red' }}>
                     {error.passwordError}
             </div>
-            <TextField 
-                id="outlined-basic" 
-                name="password"
-                type="password"
-                value={data.password}
-                onChange={setData}
-                label="Password" 
-                variant="outlined" 
-                style={{ marginBottom: '1rem' }}
-            />
+            <FormGroup>
+                <TextField 
+                    id="outlined-basic" 
+                    name="password"
+                    type="password"
+                    value={data.password}
+                    onChange={setData}
+                    label="Password" 
+                    variant="outlined" 
+                    style={{ marginBottom: '1rem' }}
+                />
+            </FormGroup>
             <Button variant="outlined" type="submit">Register</Button>
         </form>
     )
