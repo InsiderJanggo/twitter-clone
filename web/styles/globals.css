@@ -11,6 +11,12 @@ a {
   text-decoration: none;
 }
 
+form {
+  margin: 0 auto; 
+  margin-top: 1rem;
+  width: 250px;
+}
+
 * {
   box-sizing: border-box;
 }
